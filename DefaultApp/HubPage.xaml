@@ -14,18 +14,45 @@
     <Page.Resources>
         <!-- Grid-appropriate 310 by 260 pixel item template as seen in section 4 -->
         <DataTemplate x:Key="Standard310x260ItemTemplate">
-            <Grid Height="250" Width="310" Margin="5,10,5,10">
+            <Grid Height="200" Width="310" Margin="5,10,5,10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Border Background="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}" Height="150">
-                    <Image Source="{Binding ImagePath}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
+                <Border Background="White"
+                        Height="180">
+                    <StackPanel Grid.Row="1"
+                                Margin="10,10,0,0" Orientation="Vertical">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                        </Grid>
+                        <StackPanel Orientation="Horizontal">
+                        <Image Source="/Assets/add.jpg" 
+                               Margin="0,0,10,0"
+                               Height="40" 
+                               Width="40"
+                               VerticalAlignment="Top"
+                              />
+                        <TextBlock Text="{Binding Title}"
+                                   Foreground="Black"                                                                                                        
+                                   FontWeight="Bold"
+                                   FontFamily="Calibri"
+                                   FontSize="26" />
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Margin="5,10,0,0">
+                            <Image Source="/Assets/weight.png"
+                                   Margin="0,0,10,0"
+                                   Height="130"
+                                   Width="170"                                    
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Top"
+                                   Visibility="{Binding ImageVisibility}" />
+                        </StackPanel>
+                    </StackPanel>
                 </Border>
-                <StackPanel Grid.Row="1" Margin="0,10,0,0">
-                    <TextBlock Text="{Binding Title}" Style="{StaticResource TitleTextBlockStyle}" TextWrapping="NoWrap"/>
-                    <TextBlock Text="{Binding Description}" Style="{StaticResource BodyTextBlockStyle}" MaxHeight="60" />
-                </StackPanel>
             </Grid>
         </DataTemplate>
     </Page.Resources>
@@ -33,36 +60,107 @@
     <!--
     This grid acts as a root panel for the page.
   -->
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="CadetBlue">
         <Grid.ChildrenTransitions>
             <TransitionCollection>
                 <EntranceThemeTransition/>
             </TransitionCollection>
         </Grid.ChildrenTransitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+                <TextBlock x:Name="pageTitle"
+                           Margin="40,20,0,0"
+                           Text="{StaticResource AppName}"
+                           Foreground="Black"
+                           Style="{StaticResource HeaderTextBlockStyle}"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
+                           IsHitTestVisible="false"
+                           TextWrapping="NoWrap" />
+           
+            <StackPanel Orientation="Horizontal"
+                        Grid.Column="1">
+              <Image Source="/Assets/passport.jpg" 
+                     Width="50" Height="50"
+                     Margin="0,20,10,0"
+                     Stretch="Uniform"
+                     VerticalAlignment="Top"></Image>
+            <TextBlock x:Name="user"
+                       Margin="10,20,10,0"
+                       Text="{StaticResource AppName}"
+                       Foreground="Black"
+                       Style="{StaticResource SubheaderTextBlockStyle}"                      
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Top"
+                       IsHitTestVisible="false"
+                       TextWrapping="NoWrap" />
+            </StackPanel>
+        </Grid>
         <Hub SectionHeaderClick="Hub_SectionHeaderClick">
-            <Hub.Header>
+            
                 <!-- Back button and page title -->
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="80"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Button  x:Name="backButton" Style="{StaticResource NavigationBackButtonNormalStyle}"
-                        Margin="-1,-1,39,0" 
-                        VerticalAlignment="Top"
-                        Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
-                        AutomationProperties.Name="Back"
-                        AutomationProperties.AutomationId="BackButton"
-                        AutomationProperties.ItemType="Navigation Button"/>
-                    <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
-                        VerticalAlignment="Top" IsHitTestVisible="false" TextWrapping="NoWrap" />
-                </Grid>
-            </Hub.Header>
-            <HubSection Width="780" Margin="0,0,80,0">
-                <HubSection.Background>
-                    <ImageBrush ImageSource="Assets/MediumGray.png" Stretch="UniformToFill" />
-                </HubSection.Background>
+                
+           
+            
+           
+            <HubSection Width="780" Margin="0,50,80,0">
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>                           
+                        </Grid>
+                        <StackPanel>
+                            <Image Source="/Assets/passport.jpg"
+                                   Width="300"
+                                   Height="300"
+                                   Margin="0,20,10,0"
+                                   Stretch="Uniform"
+                                   VerticalAlignment="Top"></Image>
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical"
+                                    Grid.Column="1"
+                                    Margin="20,0,0,0">
+                            <TextBlock Text="Tony James"
+                                       Foreground="Black"
+                                       HorizontalAlignment="Right"
+                                       Margin="0,10,0,0"
+                                       Style="{StaticResource HeaderTextBlockStyle}"/>
+                            <TextBlock Text="Age 78"
+                                       Foreground="Black"
+                                       HorizontalAlignment="Right"
+                                       FontWeight="Bold"
+                                       Margin="0,20,0,0"
+                                       Style="{StaticResource SubheaderTextBlockStyle}" />
+                            <TextBlock Text="London"
+                                       Foreground="Black"
+                                       HorizontalAlignment="Right"
+                                       FontWeight="Bold"
+                                       Margin="0,20,0,0"
+                                       Style="{StaticResource SubheaderTextBlockStyle}" />
+                            <TextBlock Text="No Notifications"
+                                       Foreground="Black"
+                                       HorizontalAlignment="Right"
+                                       FontWeight="Bold"                                       
+                                       VerticalAlignment="Bottom"
+                                       Margin="0,80,0,40"
+                                       Style="{StaticResource SubheaderTextBlockStyle}" />
+                            <Button Content="View Profile"
+                                    x:Name="viewProfile"
+                                    Click="viewProfile_Click"
+                                    Width="200"
+                                    HorizontalAlignment="Right" />
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
             </HubSection>
+            <!--
             <HubSection Width="500" x:Uid="Section1Header" Header="Section 1">
                 <DataTemplate>
                     <Grid>
@@ -82,6 +180,7 @@
                     </Grid>
                 </DataTemplate>
             </HubSection>
+           
             <HubSection Width="520" x:Uid="Section2Header" Header="Section 2">
                 <DataTemplate>
                     <Grid>
@@ -102,8 +201,22 @@
                     </Grid>
                 </DataTemplate>
             </HubSection>
-            <HubSection IsHeaderInteractive="True" DataContext="{Binding Section3Items}" d:DataContext="{Binding Groups[3], Source={d:DesignData Source=/DataModel/SampleData.json, Type=data:SampleDataSource}}"
-                        x:Uid="Section3Header" Header="Section 3" Padding="40,40,40,32">
+             -->
+            <HubSection IsHeaderInteractive="True"                       
+                        DataContext="{Binding Section3Items}" 
+                        d:DataContext="{Binding Groups[2], Source={d:DesignData Source=/DataModel/SampleData.json, Type=data:SampleDataSource}}"
+                        x:Uid="Section3Header"                         
+                        Padding="40,40,40,32"
+                         Margin="0,30,0,0"
+                        >
+                <HubSection.Header>
+                    <TextBlock x:Uid="SectionHeader"
+                               TextLineBounds="TrimToBaseline"
+                               OpticalMarginAlignment="TrimSideBearings"
+                               Text="Health Tracking"
+                               Foreground="Black"
+                               FontFamily="Calibri" />
+                </HubSection.Header>                
                 <DataTemplate>
                     <GridView
                         x:Name="itemGridView"
@@ -119,34 +232,33 @@
                     </GridView>
                 </DataTemplate>
             </HubSection>
-            <HubSection x:Uid="Section4Header" Header="Section 4">
+            <HubSection IsHeaderInteractive="True"                       
+                        DataContext="{Binding Section3Items}"
+                        d:DataContext="{Binding Groups[3], Source={d:DesignData Source=/DataModel/SampleData.json, Type=data:SampleDataSource}}"
+                        x:Uid="Section4Header"                       
+                        Padding="40,40,40,32"
+                        Margin="0,30,0,0"
+                       >
+                <HubSection.Header>
+                    <TextBlock x:Uid="Section1Header"
+                               TextLineBounds="TrimToBaseline"
+                               OpticalMarginAlignment="TrimSideBearings"
+                               Text="Sharing"
+                               Foreground="Black"
+                               FontFamily="Calibri" />
+                </HubSection.Header>
                 <DataTemplate>
-                    <!-- width of 400 -->
-                    <StackPanel Orientation="Vertical">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="130"/>
-                                <ColumnDefinition Width="5"/>
-                                <ColumnDefinition Width="130"/>
-                                <ColumnDefinition Width="5"/>
-                                <ColumnDefinition Width="130"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="270"/>
-                                <RowDefinition Height="95"/>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                            <Image Source="Assets/MediumGray.png" Grid.ColumnSpan="5" Margin="0,0,0,10" Stretch="Fill" />
-                            <Image Source="Assets/MediumGray.png" Grid.Row="1" Stretch="Fill"/>
-                            <Image Source="Assets/MediumGray.png" Grid.Row="1" Grid.Column="2" Stretch="Fill"/>
-                            <Image Source="Assets/MediumGray.png" Grid.Row="1" Grid.Column="4" Stretch="Fill"/>
-                            <TextBlock Style="{StaticResource TitleTextBlockStyle}" Grid.Row="2" Grid.ColumnSpan="5"  Margin="0,15,0,0"
-                                       x:Uid="DescriptionHeader" Text="Description text:"/>
-                            <TextBlock Style="{StaticResource BodyTextBlockStyle}" Grid.Row="3" Grid.ColumnSpan="5"
-                                       x:Uid="LongText" Text="Lorem ipsum dolor sit amet, consectetuer ising elit, sed diam nonummy nibh uismod tincidunt ut laoreet suscipit lobortis ni ut wisi quipexerci quis consequat minim veniam, quis nostrud exerci tation ullam corper. Lorem ipsum dolor sit amet, consectetuer ising elit, sed diam nonummy nibh uismod tincidunt ut laoreet suscipit lobortis ni ut wisi quipexerci quis consequat minim veniam, quis nostrud exerci tation ullam corper."/>
-                        </Grid>
-                    </StackPanel>
+                    <GridView x:Name="itemGridView"
+                              ItemsSource="{Binding Items}"
+                              Margin="-9,-14,0,0"
+                              AutomationProperties.AutomationId="ItemGridView"
+                              AutomationProperties.Name="Items In Group"
+                              ItemTemplate="{StaticResource Standard310x260ItemTemplate}"
+                              SelectionMode="None"
+                              IsSwipeEnabled="false"
+                              IsItemClickEnabled="True"
+                              ItemClick="ItemView_ItemClick">
+                    </GridView>
                 </DataTemplate>
             </HubSection>
         </Hub>

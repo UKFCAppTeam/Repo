@@ -239,13 +239,13 @@
     <value>Section 2</value>
   </data>
   <data name="Section3Header.Header" xml:space="preserve">
-    <value>Section 3</value>
+    <value>Health Tracking</value>
   </data>
   <data name="Section3Subtitle.Text" xml:space="preserve">
     <value>Section subtitle</value>
   </data>
   <data name="Section4Header.Header" xml:space="preserve">
-    <value>Section 4</value>
+    <value>Sharing</value>
   </data>
   <data name="Section2UnderTitle.Text" xml:space="preserve">
     <value>Quisque in porta lorem dolor amet sed consectetuer ising elit, sed diam non my nibh uis mod wisi quip.</value>

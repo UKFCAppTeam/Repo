@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -65,8 +66,10 @@ namespace DefaultApp
         private async void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
             // TODO: Create an appropriate data model for your problem domain to replace the sample data
-            var sampleDataGroup = await SampleDataSource.GetGroupAsync("Group-4");
+            var sampleDataGroup = await SampleDataSource.GetGroupAsync("Group-3");
             this.DefaultViewModel["Section3Items"] = sampleDataGroup;
+            pageTitle.Text = "UK Future Care";
+            user.Text = "Tony";                  
         }
 
         /// <summary>
@@ -116,5 +119,10 @@ namespace DefaultApp
         }
 
         #endregion
+
+        private void viewProfile_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -68,7 +68,8 @@ namespace DefaultApp
         {
             // TODO: Create an appropriate data model for your problem domain to replace the sample data
             var item = await SampleDataSource.GetItemAsync((String)e.NavigationParameter);
-            this.DefaultViewModel["Item"] = item;
+            this.DefaultViewModel["Item"] = item;  
+            
         }
 
         #region NavigationHelper registration
@@ -94,5 +95,15 @@ namespace DefaultApp
         }
 
         #endregion
+
+        private void ItemView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void AddItemHyperlinkButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(AddItem), pageTitle.Text);
+        }
     }
 }

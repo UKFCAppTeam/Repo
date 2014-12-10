@@ -23,7 +23,7 @@ namespace DefaultApp.Data
     /// </summary>
     public class SampleDataItem
     {
-        public SampleDataItem(String uniqueId, String title, String subtitle, String imagePath, String description, String content)
+        public SampleDataItem(String uniqueId, String title, String subtitle, String imagePath, String description, String content, String imageVisibility)
         {
             this.UniqueId = uniqueId;
             this.Title = title;
@@ -31,6 +31,7 @@ namespace DefaultApp.Data
             this.Description = description;
             this.ImagePath = imagePath;
             this.Content = content;
+            this.ImageVisibility = imageVisibility;
         }
 
         public string UniqueId { get; private set; }
@@ -39,6 +40,7 @@ namespace DefaultApp.Data
         public string Description { get; private set; }
         public string ImagePath { get; private set; }
         public string Content { get; private set; }
+        public string ImageVisibility { get; private set; }
 
         public override string ToString()
         {
@@ -144,7 +146,8 @@ namespace DefaultApp.Data
                                                        itemObject["Subtitle"].GetString(),
                                                        itemObject["ImagePath"].GetString(),
                                                        itemObject["Description"].GetString(),
-                                                       itemObject["Content"].GetString()));
+                                                       itemObject["Content"].GetString(),
+                                                       itemObject["ImageVisibility"].GetString()));
                 }
                 this.Groups.Add(group);
             }
