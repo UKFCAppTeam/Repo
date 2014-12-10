@@ -111,8 +111,14 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditProfilePage.xaml.cs">
+      <DependentUpon>EditProfilePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HubPage.xaml.cs">
       <DependentUpon>HubPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LandingPage.xaml.cs">
+      <DependentUpon>LandingPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="SectionPage.xaml.cs">
       <DependentUpon>SectionPage.xaml</DependentUpon>
@@ -128,6 +134,12 @@
     <Compile Include="Common\ObservableDictionary.cs" />
     <Compile Include="UnitConverters.cs" />
     <Compile Include="ValueConverters.cs" />
+    <Compile Include="yourProfile.xaml.cs">
+      <DependentUpon>yourProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="YourProfilePage.xaml.cs">
+      <DependentUpon>YourProfilePage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -139,6 +151,9 @@
       <SubType>Designer</SubType>
     </PRIResource>
     <Content Include="Assets\add.jpg" />
+    <Content Include="Assets\image1.jpg" />
+    <Content Include="Assets\image2.jpg" />
+    <Content Include="Assets\image3.jpg" />
     <Content Include="Assets\passport.jpg" />
     <Content Include="Assets\weight.png" />
     <Content Include="DataModel\SampleData.json" />
@@ -161,9 +176,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="EditProfilePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="HubPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="LandingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SectionPage.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -172,6 +195,14 @@
     <Page Include="ItemPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="yourProfile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="YourProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">

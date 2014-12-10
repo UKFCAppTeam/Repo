@@ -75,7 +75,7 @@
                 <TextBlock x:Name="pageTitle"
                            Margin="40,20,0,0"
                            Text="{StaticResource AppName}"
-                           Foreground="Black"
+                           Foreground="White"
                            Style="{StaticResource HeaderTextBlockStyle}"
                            HorizontalAlignment="Left"
                            VerticalAlignment="Top"
@@ -89,15 +89,16 @@
                      Margin="0,20,10,0"
                      Stretch="Uniform"
                      VerticalAlignment="Top"></Image>
-            <TextBlock x:Name="user"
-                       Margin="10,20,10,0"
-                       Text="{StaticResource AppName}"
-                       Foreground="Black"
-                       Style="{StaticResource SubheaderTextBlockStyle}"                      
-                       HorizontalAlignment="Right"
-                       VerticalAlignment="Top"
-                       IsHitTestVisible="false"
-                       TextWrapping="NoWrap" />
+                <TextBlock x:Name="user"
+                           Margin="10,20,10,0"
+                           Text="{StaticResource AppName}"
+                           Foreground="White"
+                           Style="{StaticResource SubheaderTextBlockStyle}"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Top"
+                           IsHitTestVisible="false"
+                           TextWrapping="NoWrap">                    
+                </TextBlock>
             </StackPanel>
         </Grid>
         <Hub SectionHeaderClick="Hub_SectionHeaderClick">
@@ -154,6 +155,11 @@
                             <Button Content="View Profile"
                                     x:Name="viewProfile"
                                     Click="viewProfile_Click"
+                                    Width="200"
+                                    HorizontalAlignment="Right" />
+                            <Button Content="Logout"
+                                    x:Name="logout"
+                                    Click="logout_Click"
                                     Width="200"
                                     HorizontalAlignment="Right" />
                         </StackPanel>
@@ -232,6 +238,7 @@
                     </GridView>
                 </DataTemplate>
             </HubSection>
+            <!--
             <HubSection IsHeaderInteractive="True"                       
                         DataContext="{Binding Section3Items}"
                         d:DataContext="{Binding Groups[3], Source={d:DesignData Source=/DataModel/SampleData.json, Type=data:SampleDataSource}}"
@@ -261,6 +268,7 @@
                     </GridView>
                 </DataTemplate>
             </HubSection>
+            -->
         </Hub>
     </Grid>
 </Page>

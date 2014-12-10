@@ -122,6 +122,16 @@ namespace DefaultApp
 
         private void viewProfile_Click(object sender, RoutedEventArgs e)
         {
+            Frame.Navigate(typeof(YourProfilePage));
+        }
+
+        private void logout_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(LandingPage));
+        }
+
+        private void user_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }
